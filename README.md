@@ -71,23 +71,23 @@ Additionally, a Flask-based web application integrates both models, allowing use
 
     VS Code
 
-Project Structure
-BrainTumorProject/
-│
-├── Dateset
-    ├── https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset
-    ├── https://www.kaggle.com/datasets/nikhilroxtomar/brain-tumor-segmentation
-├── app.py
-├── requirements.txt
-├── README.md
-├── Models/
-│   ├── Brain Tumor Detection.ipynb
-│   └── Brain_tumor_segmentation.ipynb
-├── templates/
-│   ├── index.html
-│   └── result.html
-├── static/
-└── .gitignore
+# Project Structure
+    BrainTumorProject/
+    │
+    ├── Dateset
+        ├── https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset
+        ├── https://www.kaggle.com/datasets/nikhilroxtomar/brain-tumor-segmentation
+    ├── app.py
+    ├── requirements.txt
+    ├── README.md
+    ├── Models/
+    │   ├── Brain Tumor Detection.ipynb
+    │   └── Brain_tumor_segmentation.ipynb
+    ├── templates/
+    │   ├── index.html
+    │   └── result.html
+    ├── static/
+    └── .gitignore
 
 # Installation Steps
 1️ Clone the Repository
@@ -180,3 +180,4 @@ GitHub: https://github.com/LazyGenius07
 📜 License
 
 This project is for academic and educational purposes only.
+
