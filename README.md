@@ -132,18 +132,12 @@ Segmented tumor output
 📸 Screenshots
 🏠 Home Page
 
-(Add screenshot here)
+<img width="1919" height="1013" alt="image" src="https://github.com/user-attachments/assets/a3643082-9d7f-4c12-ba58-1b5451ae3982" />
 
-![Home Page](screenshots/home.png)
 
 Prediction Result
 
-(Add screenshot here)
-
-![Result Page](screenshots/result.png)
-
-
-(Create a screenshots/ folder and add images for better presentation.)
+<img width="1835" height="1550" alt="image" src="https://github.com/user-attachments/assets/15ed0687-feed-4c4f-bd8c-8c038cd88c56" />
 
 Model Details
 
@@ -183,5 +177,6 @@ GitHub: https://github.com/LazyGenius07
 📜 License
 
 This project is for academic and educational purposes only.
+
 
 
