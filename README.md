@@ -24,19 +24,13 @@ Additionally, a Flask-based web application integrates both models, allowing use
 
 # Features
 
- Brain tumor classification using deep learning
-
- Tumor region segmentation
-
- Web-based interface for image upload
-
- Real-time prediction results
-
- Clean and user-friendly UI
-
- Model training notebooks included
-
- Flask-based deployment
+     Brain tumor classification using deep learning
+     Tumor region segmentation
+     Web-based interface for image upload
+     Real-time prediction results
+     Clean and user-friendly UI
+     Model training notebooks included
+     Flask-based deployment
 
 # Tech Stack
  > Programming Language
@@ -139,37 +133,144 @@ Prediction Result
 
 <img width="1835" height="1550" alt="image" src="https://github.com/user-attachments/assets/15ed0687-feed-4c4f-bd8c-8c038cd88c56" />
 
-Model Details
+# Model Details
+1. CNN-Based Tumor Classification Model
 
-CNN-based classification model
 
-Image preprocessing: resizing, normalization
+        The tumor classification system is implemented using Transfer Learning with VGG16, a deep convolutional neural network pre-trained on the ImageNet dataset. Transfer learning enables the model to leverage learned low-level and mid-level image features, improving performance on medical imaging tasks with limited data.
 
-Binary classification output
+        🔹 Architecture Configuration
 
-Segmentation model for tumor boundary extraction
+            Base Model: VGG16 (include_top=False, pretrained on ImageNet)    
+            Input Size: 128 × 128 × 3    
+            Frozen Layers: All convolutional layers initially frozen    
+            Fine-Tuning: Last 3 convolutional layers unfrozen for domain adaptation
+            Custom Fully Connected Layers Added:    
+            Flatten Layer    
+            Dropout (0.3)    
+            Dense Layer (128 neurons, ReLU activation)
+            Dropout (0.2)
+            Output Layer (Softmax activation)
+
+        🔹 Classification Output
+
+            The model performs multi-class classification and predicts one of the following categories:
+            No Tumor
+            Glioma Tumor
+            Meningioma Tumor
+            Pituitary Tumor
+
+            The final output layer uses Softmax activation, producing probability scores for each class.
+
+        🔹 Training Configuration
+
+        Optimizer: Adam (Learning Rate = 0.0001)
+        Loss Function: Sparse Categorical Crossentropy
+        Evaluation Metrics:
+            Sparse Categorical Accuracy
+            Confusion Matrix
+            Classification Report (Precision, Recall, F1-score)
+            ROC Curve and AUC Score
+2. Image Preprocessing Pipeline
+   Proper preprocessing is essential for improving convergence and model generalization.
+
+        🔹 Image Resizing
+
+            All MRI images are resized to:
+            128 × 128 × 3
+            This ensures consistent input dimensions across the dataset.
+
+        🔹 Normalization
+
+            Pixel intensity values are scaled from:
+            0–255 → 0–1
+            This stabilizes gradient updates and improves training efficiency.
+
+        🔹 Data Augmentation
+            
+            To reduce overfitting and improve robustness, the following augmentations are applied:
+            Random brightness adjustment (0.8–1.2 range)
+            Random contrast variation (0.8–1.2 range)
+            Data shuffling at each epoch
+            Custom batch data generator to manage memory efficiently
+
+3. Tumor Segmentation Model (Boundary Extraction)
+
+    For precise tumor localization, a U-Net architecture is implemented to perform pixel-wise segmentation.
+
+        🔹 Architecture Overview
+            
+            The U-Net model consists of:
+                Encoder (Contracting Path):
+                    Convolution Blocks
+                    ReLU Activation
+                    MaxPooling Layers
+                    Bottleneck Layer
+
+                Decoder (Expanding Path):
+                    Transposed Convolutions
+                    Skip Connections (to retain spatial information)
+                    Convolution Blocks
+                    Output Layer:
+                        1×1 Convolution
+                        Sigmoid Activation
+                🔹 Input Size
+                        128 × 128 × 3
+                🔹 Output
+                        Binary segmentation mask:
+                            1 → Tumor Region
+                            0 → Background
+
+4. Segmentation Loss Function
+
+To improve segmentation accuracy, a hybrid loss function is used:
+Binary Cross Entropy (BCE) + Dice Loss
+
+    🔹 Dice Coefficient Formula
+        Dice = (2 × |Prediction ∩ Ground Truth|) / (|Prediction| + |Ground Truth|)
+        This ensures:
+            Pixel-wise classification accuracy (BCE)
+            Maximized overlap between predicted and actual tumor regions (Dice Loss)
+
+5. Training Optimization Techniques
+
+To ensure stable and efficient training, the following techniques are applied:
+    
+    Early Stopping (prevents overfitting)
+    Reduce Learning Rate on Plateau
+    Model Checkpointing (saves best performing model)
+    Fixed random seed for reproducibility
+
+6. Integrated System Capabilities
+
+The final system integrates classification and segmentation to provide:
+
+    Automatic tumor detection
+    Tumor type classification (4 classes)
+    Tumor boundary extraction
+    Tumor region mask visualization
+    Tumor coverage percentage estimation
+    Prediction confidence scores
 
 # Future Improvements
 
-> Improve model accuracy using transfer learning
-
-> Add multi-class tumor classification
-
-> Deploy application on cloud (Render)
-
-> Add user authentication system
-
-> Integrate real-time MRI dataset support
-
-> Convert into full medical diagnostic dashboard
+    > Improve model accuracy using transfer learning
+    > Add multi-class tumor classification
+    > Deploy application on cloud (Render)
+    > Add user authentication system
+    > Integrate real-time MRI dataset support
+    > Convert into full medical diagnostic dashboard
 
 # Author's
 
     1>  D M Abdul Razzaq
-        B.E – Artificial Intelligence and Machine Learing
+        B.E – Artificial Intelligence and Machine Learing at BMS Collage of Engineering
+        USN 1BM24AI407
         Mini Project – 2026
+        
     2>  Jeevan Ravindra Kunter
-        B.E – Artificial Intelligence and Machine Learing
+        B.E – Artificial Intelligence and Machine Learing at BMS Collage of Engineering
+        USN 1BM24AI409
         Mini Project – 2026
     
 GitHub: https://github.com/LazyGenius07
@@ -177,6 +278,7 @@ GitHub: https://github.com/LazyGenius07
 📜 License
 
 This project is for academic and educational purposes only.
+
 
 
 
