@@ -120,11 +120,14 @@ Then open your browser and go to:
 http://127.0.0.1:5000/
 
 
-Upload an MRI image to see:
+Upload an MRI image to see: <img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/3d7a32fa-ed01-4718-97c9-c57fdaf30908" />
+
 
 Classification result (Tumor / No Tumor)
+<img width="389" height="411" alt="image" src="https://github.com/user-attachments/assets/7175d5a5-f425-403e-989c-679e40a03a4d" />
 
 Segmented tumor output
+<img width="484" height="253" alt="image" src="https://github.com/user-attachments/assets/b3bce6ba-e8de-4e90-843b-95627ba32755" />
 
 📸 Screenshots
 🏠 Home Page
@@ -168,16 +171,17 @@ Segmentation model for tumor boundary extraction
 
 # Author's
 
-1>  D M Abdul Razzaq
-    B.E – Artificial Intelligence and Machine Learing
-    Mini Project – 2026
-2>  Jeevan Ravindra Kunter
-    B.E – Artificial Intelligence and Machine Learing
-    Mini Project – 2026
+    1>  D M Abdul Razzaq
+        B.E – Artificial Intelligence and Machine Learing
+        Mini Project – 2026
+    2>  Jeevan Ravindra Kunter
+        B.E – Artificial Intelligence and Machine Learing
+        Mini Project – 2026
     
 GitHub: https://github.com/LazyGenius07
 
 📜 License
 
 This project is for academic and educational purposes only.
+
 
