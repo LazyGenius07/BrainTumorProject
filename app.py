@@ -18,7 +18,7 @@ os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 # Load Models (.h5)
 # ---------------------------------------------------------------
 CLASSIFICATION_MODEL_PATH = r"D:\Mini Project\Models\classification_model.h5"
-SEGMENTATION_MODEL_PATH   = r"D:\Mini Project\Models\segmentation_unet.h5"
+SEGMENTATION_MODEL_PATH   = r"D:\Mini Project\Models\segmentation_model.h5"
 
 # Load models without compiling to avoid H5 issues
 classifier = load_model(CLASSIFICATION_MODEL_PATH, compile=False)
